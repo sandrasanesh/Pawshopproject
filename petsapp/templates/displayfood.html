@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display food</title>
+</head>
+<body>
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Accessories display</h4>
+                  <p class="card-description">
+                    Add class <code></code>
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            pet category
+                          </th>
+                          <th>
+                            pet shop
+                          </th>
+                          <th>
+                            Product name
+                          </th>
+                          <th>
+                            description
+                          </th>
+                          <th>
+                            price
+                          </th>
+                          <th>
+                           image
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in data %}
+                        <tr>
+
+                          <td>
+                            {{i.pname}}
+                          </td>
+
+                             <td>
+                            {{i.sname}}
+                          </td>
+
+                          <td>
+                            {{i.name}}
+                          </td>
+                          <td>
+                            {{i.des}}
+                          </td>
+                          <td>
+                            {{i.price}}
+                          </td>
+                          <td><img src="{{i.fimg.url}}" height="100px" width="100px">
+
+                          </td>
+                          <td>
+                            <form action="{% url 'edit_food' dataid=i.id %}">
+                              <button type="submit" class="btn btn-primary">Edit</button>
+                            </form>
+                          </td>
+                          <td>
+                            <form action="{% url 'dlt_food' dataid=i.id %}">
+                              <button type="submit" class="btn btn-primary">Delete</button>
+                            </form>
+                          </td>
+                        </tr>
+                      {% endfor %}
+
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pets category</title>
+</head>
+<body>
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add category</h4>
+                  <p class="card-description">
+
+                  </p>
+                  <form class="forms-sample" method="post" action="{% url 'savecate' %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">pets</label>
+                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="name" name="pname">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">description</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="description" name="pdes">
+                    </div>
+                     <div class="form-group">
+                      <label for="exampleInputEmail1">image</label> <br>
+                      <input type="file" class="" id="exampleInputEmail" name="pimg">
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+
+</body>
+</html>
+{% endblock %}

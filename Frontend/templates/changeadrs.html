@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Hexashop - About Page</title>
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-hexashop.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/owl-carousel.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}">
+<!--
+
+TemplateMo 571 Hexashop
+
+https://templatemo.com/tm-571-hexashop
+
+-->
+    </head>
+
+    <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+<!--    <header class="header-area header-sticky">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-12">-->
+<!--                    <nav class="main-nav">-->
+<!--                        &lt;!&ndash; ***** Logo Start ***** &ndash;&gt;-->
+<!--                        <a href="index.html" class="logo">-->
+<!--                            <img src="assets/images/logo.png">-->
+<!--                        </a>-->
+<!--                        &lt;!&ndash; ***** Logo End ***** &ndash;&gt;-->
+<!--                        &lt;!&ndash; ***** Menu Start ***** &ndash;&gt;-->
+<!--                        <ul class="nav">-->
+<!--                            <li class="scroll-to-section"><a href="index.html" class="active">Home</a></li>-->
+<!--                            <li class="scroll-to-section"><a href="index.html">Men's</a></li>-->
+<!--                            <li class="scroll-to-section"><a href="index.html">Women's</a></li>-->
+<!--                            <li class="scroll-to-section"><a href="index.html">Kid's</a></li>-->
+<!--                            <li class="submenu">-->
+<!--                                <a href="javascript:;">Pages</a>-->
+<!--                                <ul>-->
+<!--                                    <li><a href="about.html">About Us</a></li>-->
+<!--                                    <li><a href="products.html">Products</a></li>-->
+<!--                                    <li><a href="single-product.html">Single Product</a></li>-->
+<!--                                    <li><a href="contact.html">Contact Us</a></li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                            <li class="submenu">-->
+<!--                                <a href="javascript:;">Features</a>-->
+<!--                                <ul>-->
+<!--                                    <li><a href="#">Features Page 1</a></li>-->
+<!--                                    <li><a href="#">Features Page 2</a></li>-->
+<!--                                    <li><a href="#">Features Page 3</a></li>-->
+<!--                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                            <li class="scroll-to-section"><a href="index.html">Explore</a></li>-->
+<!--                        </ul>-->
+<!--                        <a class='menu-trigger'>-->
+<!--                            <span>Menu</span>-->
+<!--                        </a>-->
+<!--                        &lt;!&ndash; ***** Menu End ***** &ndash;&gt;-->
+<!--                    </nav>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </header>-->
+      <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <img src="{% static 'assets/images/logo_pet1-removebg-preview.png' %}" style="margin-left:-100px;margin-top:-35px;height:160px">
+                        </a>
+                        <label style="font-size:35px;margin-left:-40px;margin-top:25px">Pawshop</label>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+
+                            <li class="scroll-to-section"><a href="{% url 'home_page' %}" class="" >Home</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'breed_page' %}" class="">Breeds</a></li>
+                            <li class="scroll-to-section"><a href="#men">vet</a></li>
+                            <li class="scroll-to-section"><a href="#women"></a></li>
+
+                            <li class="submenu">
+                                <a href="javascript:;">Pages</a>
+                                <ul>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="products.html">Products</a></li>
+                                    <li><a href="single-product.html">Single Product</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:;">Features</a>
+                                <ul>
+                                    <li><a href="#">Features Page 1</a></li>
+                                    <li><a href="#">Features Page 2</a></li>
+                                    <li><a href="#">Features Page 3</a></li>
+                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
+                                </ul>
+                            </li>
+                            	{% if request.session.uname %}
+                            <li class=""><a href="{% url 'logout_user' %}" style="font-size:13px" > welcome {{request.session.uname}}/logout</a></li>
+                            {% else %}
+						<li><a href="#"><i class="fa fa-user-o">Register or login</i></a></li>
+						{% endif %}
+                        </ul>
+
+
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Main Banner Area Start ***** -->
+<!--    <div class="page-heading about-page-heading" id="top">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-12">-->
+<!--                    <div class="inner-content">-->
+<!--                        <h2>About Our Company</h2>-->
+<!--                        <span>Awesome, clean &amp; creative HTML5 Template</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <!-- ***** Main Banner Area End ***** -->
+
+    <!-- ***** About Area Starts ***** -->
+    <div class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-image">
+                        <img src="assets/images/about-left-image.jpg" alt="">
+                    </div>
+                </div>
+<!--                <div class="col-lg-6">-->
+<!--                    <div class="right-content">-->
+<!--                        <h4>About Us &amp; Our Skills</h4>-->
+<!--                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.</span>-->
+<!--                        <div class="quote">-->
+<!--                            <i class="fa fa-quote-left"></i><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod kon tempor incididunt ut labore.</p>-->
+<!--                        </div>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>-->
+<!--                        <ul>-->
+<!--                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--                            <li><a href="#"><i class="fa fa-behance"></i></a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Personal address</h2>
+                  <ul class="icon-data-list">
+                    <li>
+                        {% for i in data %}
+                        <div class="d-flex">
+<!--                        <img src="images/faces/face1.jpg" alt="user">-->
+                        <div style="margin-left:40px">
+                          <h4 class="text-info mb-1">{{i.name}}</h4>
+                          <p class="mb-0">{{i.houseno}}</p>
+                          <small>{{i.area}}</small>
+                            <small>{{i.landmark}}</small><br>
+                            <small>{{i.pincode}}</small><br>
+                            <small>{{i.mob}}</small><br>
+                            <small>{{i.email}}</small><br>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                    {% endfor %}
+                </div>
+              </div>
+
+
+
+
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--  <head>-->
+<!--  	<title>Table 06</title>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+
+<!--	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>-->
+
+<!--	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+<!--	<link rel="stylesheet" href="css/style.css">-->
+
+<!--	</head>-->
+<!--	<body>-->
+<!--	<section class="ftco-section">-->
+<!--		<div class="container">-->
+<!--			<div class="row justify-content-center">-->
+<!--				<div class="col-md-6 text-center mb-4">-->
+<!--					<h2 class="heading-section">cartpage</h2>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="row">-->
+<!--				<div class="col-md-12">-->
+<!--					<h3 class="h5 mb-4 text-center">Table Accordion</h3>-->
+<!--					<div class="table-wrap">-->
+<!--						<table class="table">-->
+<!--						  <thead class="thead-primary">-->
+<!--						    <tr>-->
+<!--						    	<th>&nbsp;</th>-->
+<!--						    	<th>&nbsp;</th>-->
+<!--						    	<th>Product</th>-->
+<!--						      <th>Price</th>-->
+<!--						      <th>Quantity</th>-->
+<!--						      <th>total</th>-->
+<!--						      <th>&nbsp;</th>-->
+<!--						    </tr>-->
+<!--						  </thead>-->
+<!--						  <tbody>-->
+<!--						  {% for i in data %}-->
+<!--						    <tr class="alert" role="alert">-->
+<!--						    	<td>-->
+<!--						    		<label class="checkbox-wrap checkbox-primary">-->
+<!--										  <input type="checkbox" checked>-->
+<!--										  <span class="checkmark"></span>-->
+<!--										</label>-->
+<!--						    	</td>-->
+<!--						    	<td>-->
+<!--						    		<div class="img" style="background-image: url(images/product-1.png);"></div>-->
+<!--						    	</td>-->
+<!--						      <td>-->
+<!--						      	{{i.name}}-->
+<!--						      </td>-->
+<!--						      <td>{{i.price}}</td>-->
+<!--						      <td>-->
+
+<!--				             	{{i.quantity}}</td>-->
+<!--				          <td>{{i.total_price}}</td>-->
+<!--						      <td>-->
+<!--						      	    <td>-->
+<!--									<a href="{% url 'del_cart' dataid=i.id %}"><i class="fa fa-close"></i></a>-->
+<!--								</td>-->
+<!--						    </tr>-->
+<!--						  {% endfor %}-->
+
+
+<!--&lt;!&ndash;						    <tr class="alert" role="alert">&ndash;&gt;-->
+<!--&lt;!&ndash;						    	<td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    		<label class="checkbox-wrap checkbox-primary">&ndash;&gt;-->
+<!--&lt;!&ndash;										  <input type="checkbox">&ndash;&gt;-->
+<!--&lt;!&ndash;										  <span class="checkmark"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;										</label>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	<td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    		<div class="img" style="background-image: url(images/product-2.png);"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	<div class="email">&ndash;&gt;-->
+<!--&lt;!&ndash;						      		<span>Sneakers Shoes 2020 For Men </span>&ndash;&gt;-->
+<!--&lt;!&ndash;						      		<span>Fugiat voluptates quasi nemo, ipsa perferendis</span>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	</div>&ndash;&gt;-->
+<!--&lt;!&ndash;						      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td>$30.99</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td class="quantity">&ndash;&gt;-->
+<!--&lt;!&ndash;					        	<div class="input-group">&ndash;&gt;-->
+<!--&lt;!&ndash;				             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">&ndash;&gt;-->
+<!--&lt;!&ndash;				          	</div>&ndash;&gt;-->
+<!--&lt;!&ndash;				          </td>&ndash;&gt;-->
+<!--&lt;!&ndash;				          <td>$30.99</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">&ndash;&gt;-->
+<!--&lt;!&ndash;				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>&ndash;&gt;-->
+<!--&lt;!&ndash;				          	</button>&ndash;&gt;-->
+<!--&lt;!&ndash;				        	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    </tr>&ndash;&gt;-->
+
+<!--&lt;!&ndash;						    <tr class="alert" role="alert">&ndash;&gt;-->
+<!--&lt;!&ndash;						    	<td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    		<label class="checkbox-wrap checkbox-primary">&ndash;&gt;-->
+<!--&lt;!&ndash;										  <input type="checkbox">&ndash;&gt;-->
+<!--&lt;!&ndash;										  <span class="checkmark"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;										</label>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	<td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    		<div class="img" style="background-image: url(images/product-3.png);"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	<div class="email">&ndash;&gt;-->
+<!--&lt;!&ndash;						      		<span>Sneakers Shoes 2020 For Men </span>&ndash;&gt;-->
+<!--&lt;!&ndash;						      		<span>Fugiat voluptates quasi nemo, ipsa perferendis</span>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	</div>&ndash;&gt;-->
+<!--&lt;!&ndash;						      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td>$35.50</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td class="quantity">&ndash;&gt;-->
+<!--&lt;!&ndash;					        	<div class="input-group">&ndash;&gt;-->
+<!--&lt;!&ndash;				             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">&ndash;&gt;-->
+<!--&lt;!&ndash;				          	</div>&ndash;&gt;-->
+<!--&lt;!&ndash;				          </td>&ndash;&gt;-->
+<!--&lt;!&ndash;				          <td>$35.50</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">&ndash;&gt;-->
+<!--&lt;!&ndash;				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>&ndash;&gt;-->
+<!--&lt;!&ndash;				          	</button>&ndash;&gt;-->
+<!--&lt;!&ndash;				        	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    </tr>&ndash;&gt;-->
+
+<!--&lt;!&ndash;						    <tr class="alert" role="alert">&ndash;&gt;-->
+<!--&lt;!&ndash;						    	<td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    		<label class="checkbox-wrap checkbox-primary">&ndash;&gt;-->
+<!--&lt;!&ndash;										  <input type="checkbox">&ndash;&gt;-->
+<!--&lt;!&ndash;										  <span class="checkmark"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;										</label>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	<td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    		<div class="img" style="background-image: url(images/product-4.png);"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	<div class="email">&ndash;&gt;-->
+<!--&lt;!&ndash;						      		<span>Sneakers Shoes 2020 For Men </span>&ndash;&gt;-->
+<!--&lt;!&ndash;						      		<span>Fugiat voluptates quasi nemo, ipsa perferendis</span>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	</div>&ndash;&gt;-->
+<!--&lt;!&ndash;						      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td>$76.99</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td class="quantity">&ndash;&gt;-->
+<!--&lt;!&ndash;					        	<div class="input-group">&ndash;&gt;-->
+<!--&lt;!&ndash;				             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">&ndash;&gt;-->
+<!--&lt;!&ndash;				          	</div>&ndash;&gt;-->
+<!--&lt;!&ndash;				          </td>&ndash;&gt;-->
+<!--&lt;!&ndash;				          <td>$76.99</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">&ndash;&gt;-->
+<!--&lt;!&ndash;				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>&ndash;&gt;-->
+<!--&lt;!&ndash;				          	</button>&ndash;&gt;-->
+<!--&lt;!&ndash;				        	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    </tr>&ndash;&gt;-->
+
+<!--&lt;!&ndash;						    <tr class="alert" role="alert">&ndash;&gt;-->
+<!--&lt;!&ndash;						    	<td class="border-bottom-0">&ndash;&gt;-->
+<!--&lt;!&ndash;						    		<label class="checkbox-wrap checkbox-primary">&ndash;&gt;-->
+<!--&lt;!&ndash;										  <input type="checkbox">&ndash;&gt;-->
+<!--&lt;!&ndash;										  <span class="checkmark"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;										</label>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	<td class="border-bottom-0">&ndash;&gt;-->
+<!--&lt;!&ndash;						    		<div class="img" style="background-image: url(images/product-1.png);"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;						    	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td class="border-bottom-0">&ndash;&gt;-->
+<!--&lt;!&ndash;						      	<div class="email">&ndash;&gt;-->
+<!--&lt;!&ndash;						      		<span>Sneakers Shoes 2020 For Men </span>&ndash;&gt;-->
+<!--&lt;!&ndash;						      		<span>Fugiat voluptates quasi nemo, ipsa perferendis</span>&ndash;&gt;-->
+<!--&lt;!&ndash;						      	</div>&ndash;&gt;-->
+<!--&lt;!&ndash;						      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td class="border-bottom-0">$40.00</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td class="quantity border-bottom-0">&ndash;&gt;-->
+<!--&lt;!&ndash;					        	<div class="input-group">&ndash;&gt;-->
+<!--&lt;!&ndash;				             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">&ndash;&gt;-->
+<!--&lt;!&ndash;				          	</div>&ndash;&gt;-->
+<!--&lt;!&ndash;				          </td>&ndash;&gt;-->
+<!--&lt;!&ndash;				          <td class="border-bottom-0">$40.00</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						      <td class="border-bottom-0">&ndash;&gt;-->
+<!--&lt;!&ndash;						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">&ndash;&gt;-->
+<!--&lt;!&ndash;				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>&ndash;&gt;-->
+<!--&lt;!&ndash;				          	</button>&ndash;&gt;-->
+<!--&lt;!&ndash;				        	</td>&ndash;&gt;-->
+<!--&lt;!&ndash;						    </tr>&ndash;&gt;-->
+<!--						  </tbody>-->
+<!--						</table>-->
+<!--                        <div style="margin-left:800px">-->
+<!--                            <h2>Total Price:{{total_price}}</h2>-->
+<!--                        </div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--        <form action="{% url 'buy_now' %}">-->
+<!--        <button type="submit" style="margin-left:1050px;margin-top:40px" class="btn btn-primary">Checkout</button>-->
+<!--            </form>-->
+<!--	</section>-->
+
+<!--	<script src="js/jquery.min.js"></script>-->
+<!--  <script src="js/popper.js"></script>-->
+<!--  <script src="js/bootstrap.min.js"></script>-->
+<!--  <script src="js/main.js"></script>-->
+
+<!--	</body>-->
+<!--</html>-->
+
+
+    <!-- ***** About Area Ends ***** -->
+
+    <!-- ***** Our Team Area Starts ***** -->
+<!--    <section class="our-team">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-12">-->
+<!--                    <div class="section-heading">-->
+<!--                        <h2>Our Amazing Team</h2>-->
+<!--                        <span>Details to details is what makes Hexashop different from the other themes.</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="team-item">-->
+<!--                        <div class="thumb">-->
+<!--                            <div class="hover-effect">-->
+<!--                                <div class="inner-content">-->
+<!--                                    <ul>-->
+<!--                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <img src="assets/images/team-member-01.jpg">-->
+<!--                        </div>-->
+<!--                        <div class="down-content">-->
+<!--                            <h4>Ragnar Lodbrok</h4>-->
+<!--                            <span>Product Caretaker</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="team-item">-->
+<!--                        <div class="thumb">-->
+<!--                            <div class="hover-effect">-->
+<!--                                <div class="inner-content">-->
+<!--                                    <ul>-->
+<!--                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <img src="assets/images/team-member-02.jpg">-->
+<!--                        </div>-->
+<!--                        <div class="down-content">-->
+<!--                            <h4>Ragnar Lodbrok</h4>-->
+<!--                            <span>Product Caretaker</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="team-item">-->
+<!--                        <div class="thumb">-->
+<!--                            <div class="hover-effect">-->
+<!--                                <div class="inner-content">-->
+<!--                                    <ul>-->
+<!--                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <img src="assets/images/team-member-03.jpg">-->
+<!--                        </div>-->
+<!--                        <div class="down-content">-->
+<!--                            <h4>Ragnar Lodbrok</h4>-->
+<!--                            <span>Product Caretaker</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+    <!-- ***** Our Team Area Ends ***** -->
+
+    <!-- ***** Services Area Starts ***** -->
+<!--    <section class="our-services">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-12">-->
+<!--                    <div class="section-heading">-->
+<!--                        <h2>Our Services</h2>-->
+<!--                        <span>Details to details is what makes Hexashop different from the other themes.</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="service-item">-->
+<!--                        <h4>Synther Vaporware</h4>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>-->
+<!--                        <img src="assets/images/service-01.jpg" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="service-item">-->
+<!--                        <h4>Locavore Squidward</h4>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>-->
+<!--                        <img src="assets/images/service-02.jpg" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="service-item">-->
+<!--                        <h4>Health Gothfam</h4>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>-->
+<!--                        <img src="assets/images/service-03.jpg" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+    <!-- ***** Services Area Ends ***** -->
+
+    <!-- ***** Subscribe Area Starts ***** -->
+<!--    <div class="subscribe">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-8">-->
+<!--                    <div class="section-heading">-->
+<!--                        <h2>By Subscribing To Our Newsletter You Can Get 30% Off</h2>-->
+<!--                        <span>Details to details is what makes Hexashop different from the other themes.</span>-->
+<!--                    </div>-->
+<!--                    <form id="subscribe" action="" method="get">-->
+<!--                        <div class="row">-->
+<!--                          <div class="col-lg-5">-->
+<!--                            <fieldset>-->
+<!--                              <input name="name" type="text" id="name" placeholder="Your Name" required="">-->
+<!--                            </fieldset>-->
+<!--                          </div>-->
+<!--                          <div class="col-lg-5">-->
+<!--                            <fieldset>-->
+<!--                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">-->
+<!--                            </fieldset>-->
+<!--                          </div>-->
+<!--                          <div class="col-lg-2">-->
+<!--                            <fieldset>-->
+<!--                              <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>-->
+<!--                            </fieldset>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-6">-->
+<!--                            <ul>-->
+<!--                                <li>Store Location:<br><span>Sunny Isles Beach, FL 33160, United States</span></li>-->
+<!--                                <li>Phone:<br><span>010-020-0340</span></li>-->
+<!--                                <li>Office Location:<br><span>North Miami Beach</span></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <div class="col-6">-->
+<!--                            <ul>-->
+<!--                                <li>Work Hours:<br><span>07:30 AM - 9:30 PM Daily</span></li>-->
+<!--                                <li>Email:<br><span>info@company.com</span></li>-->
+<!--                                <li>Social Media:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Behance</a>, <a href="#">Linkedin</a></span></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <!-- ***** Subscribe Area Ends ***** -->
+
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="first-item">
+                        <div class="logo">
+                            <img src="assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                        </div>
+                        <ul>
+                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
+                            <li><a href="#">hexashop@company.com</a></li>
+                            <li><a href="#">010-020-0340</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Shopping &amp; Categories</h4>
+                    <ul>
+                        <li><a href="#">Men’s Shopping</a></li>
+                        <li><a href="#">Women’s Shopping</a></li>
+                        <li><a href="#">Kid's Shopping</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Homepage</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Help &amp; Information</h4>
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Tracking ID</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
+
+                        <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
+
+                        <br>Distributed By: <a href="https://themewagon.com" target="_blank" title="free & premium responsive templates">ThemeWagon</a></p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'assets/js/popper.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+    <script src="{% static  'assets/js/datepicker.js' %}"></script>
+    <script src="{% static 'assets/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'assets/js/imgfix.min.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/lightbox.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+    <script>
+
+        $(function() {
+            var selectedClass = "";
+            $("p").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("."+selectedClass).fadeOut();
+            setTimeout(function() {
+              $("."+selectedClass).fadeIn();
+              $("#portfolio").fadeTo(50, 1);
+            }, 500);
+
+            });
+        });
+
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+
+<h1>rating and review</h1>
+        <div>
+
+<!--            <table>-->
+<!--                <tr>-->
+<!--                <th>User</th>-->
+<!--                <th>product</th>-->
+<!--                <th>description</th>-->
+<!--                <th>rating</th>-->
+<!--                </tr>-->
+<!--                {{data.name}}-->
+
+
+<!--                {% for review in data1 %}-->
+<!--            <tr>-->
+<!--          <td>{{review.uname}}</td>-->
+<!--           <td>{{i.name}}</td>-->
+<!--            <td>{{i.review_des}}</td>-->
+<!--             <td>{{i.rating}}</td>-->
+<!--                </tr>-->
+<!--                {% endfor %}-->
+<!--                </table>-->
+
+
+            <!-- review_rating.html -->
+<h1>{{ data.name }} Reviews and Ratings</h1>
+
+{% if data1 %}
+    <ul>
+        {% for review in data1 %}
+
+            <li>
+                <div class="star-rating">
+        {% for i in "12345" %}
+            {% if rating >= i %}
+                <span class="fa fa-star checked"></span>
+            {% else %}
+                <span class="fa fa-star"></span>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <p>Rating: {{ review.rating }}</p>
+                Comment: {{ review.review_des }}<br>
+                Customer:{{review.uname}}<br><br>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No reviews yet.</p>
+{% endif %}
+
+
+        </div>
+<br><br>
+    <h3>you can rate and message here</h3>
+<div>
+    <form method="post" action="{% url 'saverating' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="uname" id="" placeholder="user name" value="{{request.session.uname}}">
+    <input type="hidden" name="name" id="" placeholder="product name" value="{{data.name}}">
+
+   <label for="star1" class="star" onclick="rateStar(1)">&#9733;</label>
+<label for="star2" class="star" onclick="rateStar(2)">&#9733;</label>
+<label for="star3" class="star" onclick="rateStar(3)">&#9733;</label>
+<label for="star4" class="star" onclick="rateStar(4)">&#9733;</label>
+<label for="star5" class="star" onclick="rateStar(5)">&#9733;</label>
+
+<!-- Hidden radio buttons -->
+<input type="radio" id="star1" class="star-input" name="rating" value="1">
+<input type="radio" id="star2" class="star-input" name="rating" value="2">
+<input type="radio" id="star3" class="star-input" name="rating" value="3">
+<input type="radio" id="star4" class="star-input" name="rating" value="4">
+<input type="radio" id="star5" class="star-input" name="rating" value="5">
+</div>
+
+
+
+   <textarea placeholder="Description" rows="6" cols="30" name="review_des"></textarea><br><br>
+    <button type="submit" style="margin-left:30px">POST</button>
+    </form>
+
+</div>
+<style>
+
+     .star {
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .star.active {
+            color: yellow;
+        }
+
+        /* Hide the radio buttons */
+        .star-input {
+            display: none;
+        }
+
+</style>
+
+<script>
+document.querySelector('#rating').addEventListener('click', function (e) {
+    let action = 'add';
+    for (const span of this.children) {
+        span.classList[action]('active');
+        if (span === e.target) action = 'remove';
+    }
+});
+ function rateStar(rating) {
+        // Get the corresponding radio button
+        const radioInput = document.getElementById(`star${rating}`);
+
+        // Check the radio button
+        radioInput.checked = true;
+
+        // Update the 'active' class for visual feedback
+        const stars = document.querySelectorAll('.star');
+        stars.forEach(star => star.classList.remove('active'));
+        for (let i = 0; i < rating; i++) {
+            stars[i].classList.add('active');
+        }
+    }
+
+
+</script>
+
+
+</body>
+
+
+
+</html>

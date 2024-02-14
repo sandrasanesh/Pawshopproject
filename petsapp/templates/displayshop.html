@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display shop</title>
+</head>
+<body>
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">shop</h4>
+                  <p class="card-description">
+                    Add class <code></code>
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                          Items
+                          </th>
+                          <th>
+                           image
+                          </th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in data %}
+                        <tr>
+
+                          <td>
+                          {{i.sname}}
+                          </td>
+                          <td>
+                           <img src="{{i.simg.url}}" width="100px" height="100px">
+                          </td>
+                            <td>
+                                <form action="{% url 'edit_shop' dataid=i.id %}">
+                                    <button type="submit" class="btn btn-primary mr-2">Edit</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'delete_shop' dataid=i.id %}">
+                                    <button type="submit" class="btn btn-primary mr-2">Delete</button>
+                                </form>
+                            </td>
+
+                        </tr>
+                      {% endfor %}
+
+
+
+
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+</body>
+</html>
+{% endblock %}

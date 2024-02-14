@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add shops</title>
+</head>
+<body>
+<div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add shop</h4>
+                  <p class="card-description">
+                  </p>
+                  <form class="forms-sample" method="post" action="{% url 'saveshop' %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Name</label>
+                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="name" name="sname">
+                    </div><br>
+
+
+                      <input type="file" class="" id="exampleInputEmail1" name="simg"><br><br>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}

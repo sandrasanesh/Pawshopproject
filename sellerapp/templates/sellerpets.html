@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% extends 'sellerhome.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add pets</h4>
+                  <p class="card-description">
+                  </p>
+                  <form class="forms-sample" method="post" action="{% url 'savesell' %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">category</label>
+                      <select class="form-control" id="exampleInputUsername1" name="pname">
+                        {% for i in cat %}
+                        <option>{{i.pname}}</option>
+                        {% endfor %}
+                      </select>
+<!--                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="pet category">-->
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Breed</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Breed" name="breed">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Age</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Age" name="age">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputConfirmPassword1">Color</label>
+                      <input type="text" class="form-control" id="exampleInputConfirmPassword1" placeholder="color" name="color">
+                    </div>
+                    <div>
+                      <label for="exampleInputConfirmPassword1">Gender</label><br>
+                   <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                      </div><br>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">price</label>
+                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="price" name="price">
+                    </div>
+                       <div class="form-group">
+                      <label for="exampleInputPassword1">Address</label><br>
+                   <textarea id="" name="address" rows="5" cols="33" > </textarea>
+                    </div>
+                        <div class="form-group">
+                      <label for="exampleInputConfirmPassword1">seller name</label>
+                      <input type="text" class="form-control" id="exampleInputConfirmPassword" placeholder="name" name="name" value="{{cat.name}}">
+                    </div>
+                     <div class="form-group">
+                      <label for="exampleInputConfirmPassword1">contact no</label>
+                      <input type="number" class="form-control" id="exampleInputConfirmPassword" placeholder="contact no" name="phone" value="{{data.phone}}">
+                    </div>
+
+
+                    <div>
+                      <input type="file" name="petimg" id="">
+                    </div><br>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+
+
+</body>
+</html>
+{% endblock %}

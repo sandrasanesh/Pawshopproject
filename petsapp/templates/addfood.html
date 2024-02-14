@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add Accessories</title>
+</head>
+<body>
+<div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">pet Accesories</h4>
+                  <p class="card-description">
+
+                  </p>
+                  <form class="forms-sample" method="post" action="{% url 'savefood' %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div class="form-group">
+
+
+                      <label for="exampleInputUsername1">category</label>
+                      <select class="form-control" id="exampleInputUsername1" name="pname">
+                        {% for i in data %}
+                        <option>{{i.pname}}</option>
+                        {% endfor %}
+                      </select>
+                        </div>
+                      <div>
+                       <label for="exampleInputUsername1">shop</label>
+                      <select class="form-control" id="exampleInputUsername" name="sname">
+                        {% for i in shop %}
+                        <option>{{i.sname}}</option>
+                        {% endfor %}
+                      </select>
+                        </div>
+                    <div class="form-group" >
+                      <label for="exampleInputEmail3">Name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Name" name="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">description</label>
+                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="description" name="des">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">Price</label>
+                      <input type="text" class="form-control" id="exampleInputPassword" placeholder="price" name="price">
+                    </div>
+                     <div>
+                       <label for="">Image</label>
+                             <input type="file" name="fimg" id="">
+                            </div><br>
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+</body>
+</html>
+{% endblock %}

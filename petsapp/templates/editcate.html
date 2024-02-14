@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit page</title>
+</head>
+<body>
+<form class="forms-sample" method="post" action="{% url 'update_cate' dataid=data.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+                    <div class="form-group" >
+                      <label for="exampleInputUsername1">pets</label>
+                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="name" name="pname" value="{{data.pname}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">description</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="description" name="pdes" value="{{data.pdes}}">
+                    </div>
+                     <div class="form-group">
+                      <label for="exampleInputEmail1">image</label> <br>
+                      <input type="file" class="" id="exampleInputEmail" name="pimg" >
+                         <img src="{{data.pimg.url}}" height="100px" width="100px">
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+
+                  </form>
+
+
+</body>
+</html>
+{% endblock %}

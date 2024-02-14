@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit food</title>
+</head>
+<body>
+<div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">pet accessories</h4>
+                  <p class="card-description">
+                    Basic form elements
+                  </p>
+                  <form class="forms-sample" method="post" action="{% url 'updatefood' dataid=data.id %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div class="form-group">
+
+
+                      <label for="exampleInputUsername1">category</label>
+                      <select class="form-control" id="exampleInputUsername1" name="pname" >
+                         <option>{{data.pname}}</option>
+
+                             {% for i in cat %}
+                        <option>{{i.pname}}</option>
+                          {% endfor %}
+
+
+                      </select>
+                        </div>
+                          <div class="form-group">
+
+
+                      <label for="exampleInputUsername1">shop</label>
+                      <select class="form-control" id="exampleInputUsername" name="sname" >
+
+                        <option>{{data.sname}}</option>
+                          {% for i in shop %}
+                          <option>{{i.sname}}</option>
+                          {% endfor %}
+
+                      </select>
+                        </div>
+                    <div class="form-group" >
+                      <label for="exampleInputEmail3">Name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Name" name="name" value="{{data.name}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">description</label>
+                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="description" name="des" value="{{data.des}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">Price</label>
+                      <input type="text" class="form-control" id="exampleInputPassword" placeholder="price" name="price" value="{{data.price}}">
+                    </div>
+                     <div>
+                       <label for="">Image</label>
+                             <input type="file" name="fimg" id="">
+                       <img src="{{data.fimg.url}}" height="100px" width="100px">
+                            </div><br>
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2" >Update</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}
